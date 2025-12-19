@@ -5,10 +5,10 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      base: '/', 
+      base: '/', // CRITICAL: This ensures assets are linked correctly
       plugins: [react()],
       define: {
-        // This makes the key available in your code
+        // Ensure you use VITE_ prefix for client-side access
         'import.meta.env.VITE_GEMINI_API_KEY': JSON.stringify(env.VITE_GEMINI_API_KEY),
       },
       resolve: {
