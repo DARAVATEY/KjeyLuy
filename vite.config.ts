@@ -5,10 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      base: '/', // CRITICAL: This ensures assets are linked correctly
+      base: './', // Change this from '/' to './' to fix asset loading
       plugins: [react()],
       define: {
-        // Ensure you use VITE_ prefix for client-side access
         'import.meta.env.VITE_GEMINI_API_KEY': JSON.stringify(env.VITE_GEMINI_API_KEY),
       },
       resolve: {
