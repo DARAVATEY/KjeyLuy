@@ -4,9 +4,9 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-# These lines capture the key from Cloud Build
-ARG GEMINI_API_KEY
-ENV VITE_GEMINI_API_KEY=$GEMINI_API_KEY
+# Receive the key from Cloud Build
+ARG VITE_GEMINI_API_KEY
+ENV VITE_GEMINI_API_KEY=$VITE_GEMINI_API_KEY
 
 RUN npm run build
 
